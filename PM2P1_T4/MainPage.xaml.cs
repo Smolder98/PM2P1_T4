@@ -43,9 +43,9 @@ namespace PM2P1_T4
             await Navigation.PushAsync(new LocalPage());
         }
 
-        private async void listImage_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private async void listImage_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var selected = e.CurrentSelection.FirstOrDefault() as Imagen;
+            var selected = e.Item as Imagen;
 
             //await DisplayAlert("","Elemento seleccionado: " + Emple.nombre + " Fecha: "+ Emple.fechaIngreso, "OK");
 

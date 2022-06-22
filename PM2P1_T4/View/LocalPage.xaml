@@ -13,7 +13,8 @@
             </Frame>
             
             <ListView x:Name="listaImagen" 
-                      HasUnevenRows="True">
+                      HasUnevenRows="True"
+                      ItemTapped="listaImagen_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

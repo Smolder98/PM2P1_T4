@@ -39,6 +39,7 @@ namespace PM2P1_T4.View
 
                     temp.nombre = item.Remove(0, 82);
                     temp.descripcion = item;
+                    temp.foto = FileToByteArray(item);
 
                     imagenes.Add(temp);
                 }
@@ -49,6 +50,30 @@ namespace PM2P1_T4.View
             {
                
             }
+        }
+
+        private async void listaImagen_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var selected = e.Item as Imagen;
+
+            //await DisplayAlert("","Elemento seleccionado: " + Emple.nombre + " Fecha: "+ Emple.fechaIngreso, "OK");
+
+            ImagePage viewEmple = new ImagePage();
+            viewEmple.BindingContext = selected;
+
+            await Navigation.PushAsync(viewEmple);
+        }
+
+        public byte[] FileToByteArray(string fileName)
+        {
+            byte[] buff = null;
+            FileStream fs = new FileStream(fileName,
+                                           FileMode.Open,
+                                           FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs);
+            long numBytes = new FileInfo(fileName).Length;
+            buff = br.ReadBytes((int)numBytes);
+            return buff;
         }
     }
 }

@@ -26,62 +26,48 @@
                        />
             </Frame>
 
-            <CollectionView x:Name="listImage" 
-                            Margin="20"
-                            SelectionMode="Single"
-                            SelectionChanged="listImage_SelectionChanged_1"
-                           
-                            >
 
-                <CollectionView.ItemsLayout>
 
-                    <LinearItemsLayout Orientation="Vertical"
-                                       ItemSpacing="10">
+            <ListView x:Name="listImage" HasUnevenRows="True" ItemTapped="listImage_ItemTapped">
 
-                    </LinearItemsLayout>
-
-                </CollectionView.ItemsLayout>
-
-                <CollectionView.ItemTemplate>
+                <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
-                               
-                            <Frame>
+                        <ViewCell>
+                            <StackLayout>
 
-                                <Grid>
+                                <Frame>
 
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="200" />
-                                    </Grid.ColumnDefinitions>
+                                    <Grid>
 
-                                    <Image Source="{Binding foto, Converter={StaticResource ByteToImage}}" 
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="200" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Image Source="{Binding foto, Converter={StaticResource ByteToImage}}" 
                                            WidthRequest="100" 
                                            HeightRequest="100"
                                            HorizontalOptions="StartAndExpand"
                                            Grid.Column="0"
                                            />
 
-                                    <StackLayout Grid.Column="1">
-                                        <Label Text="{Binding IdText}" />
-                                        <Label Text="{Binding NombreText}" />
-                                        <Label Text="{Binding DescText}"/>
-                                    </StackLayout>
-                                    
-                                </Grid>
-                                
-                               
-                            </Frame>
-                                
+                                        <StackLayout Grid.Column="1">
+                                            <Label Text="{Binding IdText}" />
+                                            <Label Text="{Binding NombreText}" />
+                                            <Label Text="{Binding DescText}"/>
+                                        </StackLayout>
+
+                                    </Grid>
 
 
-
-
-                        </StackLayout>
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell>
                     </DataTemplate>
-                </CollectionView.ItemTemplate>
-
-            </CollectionView>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+            
         </StackLayout>
     </ContentPage.Content>
 
